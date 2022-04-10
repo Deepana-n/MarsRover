@@ -17,4 +17,10 @@ class MarsRoverTest {
         assertEquals("1 2 N",marsRoverObject.roverInstruction(instruction));
     }
 
+    @Test
+    public void checkPositionWhenInstructionIsM(){
+        String instruction = "M";
+        assertEquals("1 3 N",marsRoverObject.roverInstruction(instruction));
+    }
+
 }

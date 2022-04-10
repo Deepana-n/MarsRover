@@ -1,28 +1,23 @@
 public class MarsRover {
+    private Position position;
 
-    private static int x;
-    private static int y;
-    private String directionRoverFacing;
-
-    public MarsRover(int x, int y, String directionRoverFacing) {
-        this.x = x;
-        this.y = y;
-        this.directionRoverFacing = directionRoverFacing;
+    public MarsRover(Position position){
+        this.position = position;
     }
 
-
     public String roverInstruction(String instruction) {
-        String originalPosition = String.valueOf(x) + " " + String.valueOf(y) + " " + directionRoverFacing;
+        String originalPosition = position.getX() + " " + position.getY() + " " + position.getDirectionRoverFacing();
         String finalPosition = "";
         String[] instructionArr = instruction.split("");
         for(String singleInstruction : instructionArr){
            if(singleInstruction.equals("M")){
-               if(directionRoverFacing.equals("N")){
-                   y+=1;
-                   finalPosition = String.valueOf(x) + " " + String.valueOf(y) + " " + directionRoverFacing;
-               }else if(directionRoverFacing.equals("S")){
-                   y-=1;
-                   finalPosition = String.valueOf(x) + " " + String.valueOf(y) + " " + directionRoverFacing;}
+               if(position.getDirectionRoverFacing().equals("N")){
+                   position.setY(position.getY()+1);
+                   finalPosition = position.getX() + " " + position.getY() + " " + position.getDirectionRoverFacing();
+               }else if(position.getDirectionRoverFacing().equals("S")) {
+                   position.setY(position.getY() - 1);
+                   finalPosition = position.getX() + " " + position.getY() + " " + position.getDirectionRoverFacing();
+               }
            }
         }
         return instruction.equals("") ? originalPosition : finalPosition;

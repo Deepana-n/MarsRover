@@ -6,28 +6,32 @@ class MarsRoverTest {
 
     @Test
     public void checkPositionWhenInstructionIsEmpty(){
-        MarsRover marsRoverObject =  new MarsRover(1, 2, "N");
+        Position position = new Position(1, 2, "N");
+        MarsRover marsRoverObject =  new MarsRover(position);
         String instruction = "";
         assertEquals("1 2 N",marsRoverObject.roverInstruction(instruction));
     }
 
     @Test
     public void checkPositionWhenInstructionIsMRoverFaceN(){
-        MarsRover marsRoverObject =  new MarsRover(1, 2, "N");
+        Position position = new Position(1, 2, "N");
+        MarsRover marsRoverObject =  new MarsRover(position);
         String instruction = "M";
         assertEquals("1 3 N",marsRoverObject.roverInstruction(instruction));
     }
 
     @Test
     public void checkPositionWhenInstructionIsMMRoverFaceN(){
-        MarsRover marsRoverObject =  new MarsRover(1, 2, "N");
+        Position position = new Position(1, 2, "N");
+        MarsRover marsRoverObject =  new MarsRover(position);
         String instruction = "MM";
         assertEquals("1 4 N",marsRoverObject.roverInstruction(instruction));
     }
 
     @Test
     public void checkPositionWhenInstructionIsMRoverFaceS(){
-        MarsRover marsRoverObject =  new MarsRover(1, 2, "S");
+        Position position = new Position(1, 2, "S");
+        MarsRover marsRoverObject =  new MarsRover(position);
         String instruction = "M";
         assertEquals("1 1 S",marsRoverObject.roverInstruction(instruction));
     }

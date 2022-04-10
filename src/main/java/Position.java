@@ -4,6 +4,7 @@ public class Position {
     private int y;
     private String directionRoverFacing;
 
+
     public Position(int x, int y, String directionRoverFacing) {
         this.x = x;
         this.y = y;

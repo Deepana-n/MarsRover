@@ -5,21 +5,35 @@ public class MarsRover {
         this.position = position;
     }
 
-    public String roverInstruction(String instruction) {
-        String originalPosition = position.getX() + " " + position.getY() + " " + position.getDirectionRoverFacing();
-        String finalPosition = "";
-        String[] instructionArr = instruction.split("");
-        for(String singleInstruction : instructionArr){
-           if(singleInstruction.equals("M")){
-               if(position.getDirectionRoverFacing().equals("N")){
-                   position.setY(position.getY()+1);
-                   finalPosition = position.getX() + " " + position.getY() + " " + position.getDirectionRoverFacing();
-               }else if(position.getDirectionRoverFacing().equals("S")) {
-                   position.setY(position.getY() - 1);
-                   finalPosition = position.getX() + " " + position.getY() + " " + position.getDirectionRoverFacing();
-               }
-           }
-        }
-        return instruction.equals("") ? originalPosition : finalPosition;
-    }
+     public String moveRover(String instruction){
+         String[] instructionArr = instruction.split("");
+         for(String singleInstruction : instructionArr){
+             if(position.getDirectionRoverFacing().equals("N")){
+                 switch (singleInstruction) {
+                     case "M" -> position.setY(position.getY() + 1);
+                     case "R" -> {
+                         position.setX(position.getX() + 1);
+                         position.setDirectionRoverFacing("E");
+                     }
+                     case "L" -> {
+                         position.setX(position.getX() - 1);
+                         position.setDirectionRoverFacing("W");
+                     }
+                 }
+             }else if(position.getDirectionRoverFacing().equals("S")){
+                 switch (singleInstruction) {
+                     case "M" -> position.setY(position.getY() - 1);
+                     case "R" -> {
+                         position.setX(position.getX() - 1);
+                         position.setDirectionRoverFacing("W");
+                     }
+                     case "L" -> {
+                         position.setX(position.getX() + 1);
+                         position.setDirectionRoverFacing("E");
+                     }
+                 }
+             }
+         }
+         return position.getX() + " " + position.getY() + " " + position.getDirectionRoverFacing();
+     }
 }

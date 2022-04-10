@@ -1,8 +1,8 @@
 public class MarsRover {
 
-    private final int x;
-    private final int y;
-    private final String directionRoverFacing;
+    private static int x;
+    private static int y;
+    private String directionRoverFacing;
 
     public MarsRover(int x, int y, String directionRoverFacing) {
         this.x = x;
@@ -14,8 +14,16 @@ public class MarsRover {
     public String roverInstruction(String instruction) {
         String originalPosition = String.valueOf(x) + " " + String.valueOf(y) + " " + directionRoverFacing;
         String finalPosition = "";
-        for(char letter : instruction.toCharArray()){
-           if(letter == 'M') finalPosition = String.valueOf(x) + " " + String.valueOf(y+1) + " " + "N";
+        String[] instructionArr = instruction.split("");
+        for(String singleInstruction : instructionArr){
+           if(singleInstruction.equals("M")){
+               if(directionRoverFacing.equals("N")){
+                   y+=1;
+                   finalPosition = String.valueOf(x) + " " + String.valueOf(y) + " " + directionRoverFacing;
+               }else if(directionRoverFacing.equals("S")){
+                   y-=1;
+                   finalPosition = String.valueOf(x) + " " + String.valueOf(y) + " " + directionRoverFacing;}
+           }
         }
         return instruction.equals("") ? originalPosition : finalPosition;
     }

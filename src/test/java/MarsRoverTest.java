@@ -9,7 +9,7 @@ class MarsRoverTest {
         Position position = new Position(1, 2, "N");
         MarsRover marsRoverObject =  new MarsRover(position);
         String instruction = "";
-        assertEquals("1 2 N",marsRoverObject.roverInstruction(instruction));
+        assertEquals("1 2 N",marsRoverObject.moveRover(instruction));
     }
 
     @Test
@@ -17,7 +17,7 @@ class MarsRoverTest {
         Position position = new Position(1, 2, "N");
         MarsRover marsRoverObject =  new MarsRover(position);
         String instruction = "M";
-        assertEquals("1 3 N",marsRoverObject.roverInstruction(instruction));
+        assertEquals("1 3 N",marsRoverObject.moveRover(instruction));
     }
 
     @Test
@@ -25,7 +25,7 @@ class MarsRoverTest {
         Position position = new Position(1, 2, "N");
         MarsRover marsRoverObject =  new MarsRover(position);
         String instruction = "MM";
-        assertEquals("1 4 N",marsRoverObject.roverInstruction(instruction));
+        assertEquals("1 4 N",marsRoverObject.moveRover(instruction));
     }
 
     @Test
@@ -33,8 +33,23 @@ class MarsRoverTest {
         Position position = new Position(1, 2, "S");
         MarsRover marsRoverObject =  new MarsRover(position);
         String instruction = "M";
-        assertEquals("1 1 S",marsRoverObject.roverInstruction(instruction));
+        assertEquals("1 1 S",marsRoverObject.moveRover(instruction));
     }
 
+    @Test
+    public void checkPositionWhenInstructionIsMRoverFaceSS(){
+        Position position = new Position(1, 2, "S");
+        MarsRover marsRoverObject =  new MarsRover(position);
+        String instruction = "MM";
+        assertEquals("1 0 S",marsRoverObject.moveRover(instruction));
+    }
+
+    @Test
+    public void checkPositionWhenInstructionIsLRoverFaceN(){
+        Position position = new Position(1, 2, "N");
+        MarsRover marsRoverObject =  new MarsRover(position);
+        String instruction = "L";
+        assertEquals("0 2 W",marsRoverObject.moveRover(instruction));
+    }
 
 }

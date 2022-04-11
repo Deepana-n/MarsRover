@@ -12,11 +12,9 @@ public class MarsRover {
                  switch (singleInstruction) {
                      case "M" -> position.setY(position.getY() + 1);
                      case "R" -> {
-                         position.setX(position.getX() + 1);
                          position.setDirectionRoverFacing("E");
                      }
                      case "L" -> {
-                         position.setX(position.getX() - 1);
                          position.setDirectionRoverFacing("W");
                      }
                  }
@@ -24,12 +22,20 @@ public class MarsRover {
                  switch (singleInstruction) {
                      case "M" -> position.setY(position.getY() - 1);
                      case "R" -> {
-                         position.setX(position.getX() - 1);
                          position.setDirectionRoverFacing("W");
                      }
                      case "L" -> {
-                         position.setX(position.getX() + 1);
                          position.setDirectionRoverFacing("E");
+                     }
+                 }
+             }else if(position.getDirectionRoverFacing().equals("E")){
+                 switch (singleInstruction) {
+                     case "M" -> position.setX(position.getX() + 1);
+                     case "R" -> {
+                         position.setDirectionRoverFacing("S");
+                     }
+                     case "L" -> {
+                         position.setDirectionRoverFacing("N");
                      }
                  }
              }

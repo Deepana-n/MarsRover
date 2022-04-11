@@ -49,7 +49,16 @@ class MarsRoverTest {
         Position position = new Position(1, 2, "N");
         MarsRover marsRoverObject =  new MarsRover(position);
         String instruction = "L";
-        assertEquals("0 2 W",marsRoverObject.moveRover(instruction));
+        assertEquals("1 2 W",marsRoverObject.moveRover(instruction));
     }
+
+    @Test
+    public void checkPositionWhenInstructionIsRRRoverFaceN(){
+        Position position = new Position(0, 0, "N");
+        MarsRover marsRoverObject =  new MarsRover(position);
+        String instruction = "RM";
+        assertEquals("1 0 E",marsRoverObject.moveRover(instruction));
+    }
+
 
 }

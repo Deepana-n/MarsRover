@@ -40,7 +40,7 @@ public class MarsRover {
                  }
              }else if(position.getDirectionRoverFacing().equals("W")){
                  switch (singleInstruction) {
-                     case "M" -> position.setX(position.getX() + 1);
+                     case "M" -> position.setX(position.getX() - 1);
                      case "R" -> {
                          position.setDirectionRoverFacing("N");
                      }

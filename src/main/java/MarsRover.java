@@ -38,6 +38,16 @@ public class MarsRover {
                          position.setDirectionRoverFacing("N");
                      }
                  }
+             }else if(position.getDirectionRoverFacing().equals("W")){
+                 switch (singleInstruction) {
+                     case "M" -> position.setX(position.getX() + 1);
+                     case "R" -> {
+                         position.setDirectionRoverFacing("N");
+                     }
+                     case "L" -> {
+                         position.setDirectionRoverFacing("S");
+                     }
+                 }
              }
          }
          return position.getX() + " " + position.getY() + " " + position.getDirectionRoverFacing();

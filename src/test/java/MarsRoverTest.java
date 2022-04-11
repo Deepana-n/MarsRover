@@ -76,4 +76,12 @@ class MarsRoverTest {
         assertEquals("1 3 N",marsRoverObject.moveRover(instruction));
     }
 
+    @Test
+    public void checkPositionWhenInstructionIsMMRMMRMRRMRoverFaceE(){
+        Position position = new Position(3, 3, "E");
+        MarsRover marsRoverObject =  new MarsRover(position);
+        String instruction = "MMRMMRMRRM";
+        assertEquals("5 1 E",marsRoverObject.moveRover(instruction));
+    }
+
 }

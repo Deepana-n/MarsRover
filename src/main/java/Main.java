@@ -7,6 +7,14 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         String plateauSize = sc.nextLine();
         Plateau plateau = new Plateau(Integer.parseInt(String.valueOf(plateauSize.charAt(0))),Integer.parseInt(String.valueOf(plateauSize.charAt(1))));
+        String rover1FinalPosition = rover1FinalPosition(sc, plateau);
+        String rover2FinalPosition = rover2FinalPosition(sc, plateau);
+        System.out.println("Your rover1 is at position---->" + rover1FinalPosition);
+        System.out.println("Your rover2 is at position---->" + rover2FinalPosition);
+        setJFrame(plateau,rover1FinalPosition,rover2FinalPosition);
+    }
+
+    private static String rover1FinalPosition(Scanner sc, Plateau plateau){
         System.out.println("Please enter original coordinates of Rover 1");
         String originalCoordinates = sc.nextLine();
         originalCoordinates = originalCoordinates.replaceAll("\\s+","");
@@ -17,6 +25,10 @@ public class Main {
         String instructions = sc.nextLine();
         MarsRover rover1 = new MarsRover(plateau,new Position(x,y,direction));
 
+        return rover1.moveRover(instructions);
+    }
+
+    private static String rover2FinalPosition(Scanner sc, Plateau plateau){
         System.out.println("Please enter original coordinates of Rover 2");
         String originalCoordinates2 = sc.nextLine();
         originalCoordinates2 = originalCoordinates2.replaceAll("\\s+","");
@@ -26,23 +38,14 @@ public class Main {
         System.out.println("Please enter instructions for Rover 2");
         String instructions2 = sc.nextLine();
         MarsRover rover2 = new MarsRover(plateau,new Position(x2,y2,direction2));
-        String rover1FinalPosition = rover1.moveRover(instructions);
-        String rover2FinalPosition = rover2.moveRover(instructions2);
-        System.out.println("Your rover1 is at position---->" + rover1FinalPosition);
-        System.out.println("Your rover2 is at position---->" + rover2FinalPosition);
-        setJFrame(plateau,rover1FinalPosition,rover2FinalPosition);
-
+        return rover2.moveRover(instructions2);
     }
 
     private static void setJFrame(Plateau plateau, String rover1FinalPosition, String rover2FinalPosition){
         JFrame frame = new JFrame("MarsRover");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.add(new Board(plateau,rover1FinalPosition,rover2FinalPosition));
-        frame.pack();
-        frame.setSize(800,800);
-        frame.setLocationRelativeTo(null);
+        frame.add(new Grid(plateau,rover1FinalPosition,rover2FinalPosition));
+        frame.setSize(1000, 1000);
         frame.setVisible(true);
-        JPanel panel = (JPanel) frame.getContentPane();
-        panel.setLayout(null);
     }
 }

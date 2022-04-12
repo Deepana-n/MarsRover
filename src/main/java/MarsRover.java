@@ -4,7 +4,7 @@ import java.util.List;
 public class MarsRover {
     private Position position;
     private final Plateau plateau;
-    private static List<String> obstacles = new ArrayList<>();
+    private static final List<String> obstacles = new ArrayList<>();
     Direction direction;
 
     public MarsRover(Plateau plateau, Position position){
@@ -36,7 +36,7 @@ public class MarsRover {
              if(noObstacles(position.getX(),position.getY(),position.getDirectionRoverFacing())){
                  finalPosition =  position.getX() + " " + position.getY() + " " + position.getDirectionRoverFacing();
              }else{
-                 finalPosition =  "Obstacles";
+                 finalPosition =  "Rover cannot be moved! Obstacle at final position ☹️";
              }
          }else{
              finalPosition = "Exceed Boundary";

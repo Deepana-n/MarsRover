@@ -7,7 +7,8 @@ South, West, East (the four cardinal compass points) respectively.
 Example
 0 0 N
 
-![](../../../../../var/folders/bm/30cvhh4s7tg2ysz1155m154m0000gn/T/TemporaryItems/NSIRD_screencaptureui_IB9Nrj/Screenshot 2022-04-23 at 21.58.02.png)
+![ScreenShot](src/main/resources/instructions.png)
+
 Assumptions:
 - Plateau is a square (eg:5x5)
 - Application currently can only move 2 rovers
@@ -39,9 +40,9 @@ South, West, East (the four cardinal compass points) respectively.
 
 
 #### Example Test Case (Input)
-![](/Users/deepananaidu/Desktop/workspace/MarsRover/src/main/resources/example_test_case.png)
+![ScreenShot](src/main/resources/example_test_case.png)
 #### Example Test Case (Output)
-![](/Users/deepananaidu/Desktop/workspace/MarsRover/src/main/resources/example_output.png)
+![ScreenShot](src/main/resources/example_output.png)
 ## Technologies
 - Java 17.0.2
 - Maven 3.8.5

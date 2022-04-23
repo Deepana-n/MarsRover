@@ -14,7 +14,7 @@ Assumptions:
 - Application does not allow rover to move past the edges of the plateau.
 
 ## Class Diagram
-![](/Users/deepananaidu/Desktop/workspace/MarsRover/src/main/resources/class_diagram.png)
+![ScreenShot](src/main/resources/class_diagram.png)
 ## Features
 
 A Rover’s position is represented by x and y co-ordinates and the letters N, S, W, E to represent North,
